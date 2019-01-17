@@ -1,0 +1,240 @@
+
+<html>
+
+
+<h1 class="ok">Tables of Time</h1>
+
+<style>
+
+    .ok {
+    text-align: center;
+    margin-top: 100px;'
+    font-family: sans-serif;
+    }   
+    
+#inventors {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin: auto;
+}
+
+#inventors td, #inventors th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+    html{
+        background-image: linear-gradient(to right, #2980b9,#6dd5fa, #FFFFFF);
+    }
+
+#inventors tr:nth-child(even){background-color: #f2f2f2;}
+#inventors tr:nth-child(odd){background-image: linear-gradient(to right, #EFEFBB, #D4D3DD);}
+
+#inventors tr:hover {background-color: #FFF200;}
+
+
+#inventors th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-image: linear-gradient(to right, #1A2980,#26D0CE);
+  color: white;
+}
+
+    #ok-html {
+        border: none;
+        position: absolute;
+        top: 20px;
+        left: 400px;
+        background-image: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+        font-size: 30px;
+        text-align: center;
+        font-family: 'bebas';
+        border-radius: 25%;
+        
+
+        
+    }
+        #b-html {
+        border: none;
+        position: absolute;
+        top: 20px;
+        left: 540px;
+        background-image: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+        font-size: 30px;
+        text-align: center;
+        font-family: 'bebas';
+        border-radius: 25%;
+        
+
+        
+    }
+        #g-html {
+        border: none;
+        position: absolute;
+        top: 20px;
+        left: 700px;
+        background-image: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+        font-size: 30px;
+        text-align: center;
+        font-family: 'bebas';
+        border-radius: 25%;
+        
+
+        
+    }
+        #d-html {
+        border: none;
+        position: absolute;
+        top: 20px;
+        left: 820px;
+        background-image: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+        font-size: 30px;
+        text-align: center;
+        font-family: 'bebas';
+        border-radius: 25%;
+        
+
+        
+    }
+    
+    
+    * {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+
+    .duck {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+    }
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+</style>
+    
+
+    <body>
+        
+   
+<table id="inventors" border="1">
+    <tr>
+  <th>Inventor</th>
+  <th>Invention</th>
+  <th>Time</th>
+   
+    </tr>
+  <tr>
+     <td>Tim Berners-Lee</td><td>WWW & HTML</td><td>1989</td>
+  </tr>
+  <tr>
+     <td>Håkon Wium Lie</td><td>CSS</td><td>1996</td>
+  </tr>
+  <tr>
+     <td>Brenden Eich</td><td>Javascript</td><td>1995</td>
+  </tr>
+    
+</table>
+
+
+<div id="printmytable"></div>
+
+<a href="index.html"><button class="button" id="ok-html"> Home </button></a>
+<a href="index.html"><button class="button" id="b-html"> Kene's Page </button></a>
+
+<br>
+<br>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+
+  <img class="duck" src="man.png" style="height: 500px ">
+  <div class="text"></div>
+</div>
+
+<div class="mySlides fade">
+
+  <img class="duck" src="dig.png" style="height: 500px">
+  <div class="text"></div>
+</div>
+
+<div class="mySlides fade">
+
+  <img class="duck" src="drain.png" style="height: 500px">
+  <div class="text"></div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+
+</body>
+    
+    
+    
+<script>
+
+    
+    var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+
+</script>
+
+
+</html>
