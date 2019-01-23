@@ -27,9 +27,7 @@ var context = canvas.getContext("2d");
 function drawTriangle() {
              
  
-ctx.beginPath();
-ctx.arc(300,400,40,0,2*Math.PI);
-ctx.stroke();
+
     
         var grd = ctx.createLinearGradient(0, 0, 170, 0);
         grd.addColorStop(0, "#1A2980");
@@ -61,6 +59,9 @@ ctx.stroke();
   // the fill color
   context.fillStyle = "rgba(255, 204, 0, 1)";
   context.fill();
+    ctx.beginPath();
+ctx.arc(300,400,40,0,2*Math.PI);
+ctx.stroke();
 }
 drawTriangle();
         
