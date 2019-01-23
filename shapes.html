@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+        
+        canvas {
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="1100" height="700" style="border:1px solid #d3d3d3";> </canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+
+      var ctx = canvas.getContext("2d");
+        
+
+        
+var context = canvas.getContext("2d");
+ 
+function drawTriangle() {
+             
+ 
+ctx.beginPath();
+ctx.arc(300,400,40,0,2*Math.PI);
+ctx.stroke();
+    
+        var grd = ctx.createLinearGradient(0, 0, 170, 0);
+        grd.addColorStop(0, "#1A2980");
+        grd.addColorStop(1, "#26D0CE");
+        
+      ctx.fillStyle = grd;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      var context = canvas.getContext('2d');
+      var imageObj = new Image();
+ 
+      imageObj.onload = function() {
+        context.drawImage(imageObj, 10, 20, 700, 400);
+      };
+      imageObj.src = 'ik.jpg';
+        
+  // the triangle
+    context.clearRect(0, 0, canvas.width, canvas.height);
+  context.beginPath();
+  context.moveTo(200 + deltaX, 400 + deltaY);
+  context.lineTo(170 + deltaX, 450 + deltaY);
+  context.lineTo(230 + deltaX, 450 + deltaY);
+  context.closePath();
+ 
+  // the outline
+  context.lineWidth = 10;
+  context.strokeStyle = "rgba(102, 102, 102, 1)";
+  context.stroke();
+ 
+  // the fill color
+  context.fillStyle = "rgba(255, 204, 0, 1)";
+  context.fill();
+}
+drawTriangle();
+        
+        window.addEventListener("keydown", moveSomething, false);
+       
+        var deltaX = 0;
+var deltaY = 0;
+ 
+function moveSomething(e) {
+    switch(e.keyCode) {
+        case 37:
+            deltaX -= 2;
+            break;
+        case 38:
+            deltaY -= 2;
+            break;
+        case 39:
+            deltaX += 2;
+            break;
+        case 40:
+            deltaY += 2;
+            break;
+    }
+    drawTriangle();
+}
+        
+        
+        
+        
+    </script>
+  </body>
+</html>      
