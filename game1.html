@@ -1,19 +1,21 @@
 
 <!doctype html>
 <html>
+    
+<style> 
+    
+color: red;
+    </style>
 <head>
 <meta charset="UTF-8" />
-<title>Kene's Wizardy</title>
+<title>Link game test</title>
 </head>
 <body>
-
-    
-    
 <section>
 
 <!-- This div is the canvas -->
-<div>
-<canvas id="canvas" width="700" height="500" style="border:1px solid #d3d3d3";>
+<div> Find the shape in which the formula matches, Area = L * W
+<canvas id="canvas" width="700" height="700" >
 This text is displayed if your browser does not support HTML5 Canvas.
 </canvas>
 </div>
@@ -31,16 +33,15 @@ var canvas;
 var ctx;
 var dx = 5;
 var dy = 5;
-var x = 50;
-var y = 40;
-var WIDTH = 700;
-var HEIGHT = 400;
-    
-    
+var x = 150;
+var y = 100;
+var WIDTH = 600;
+var HEIGHT = 600;
+var crash1 = false;
 
 function circle(x,y,r) {
 	ctx.beginPath();
-	ctx.arc(x, y, r, 90, Math.PI*2, true);
+	ctx.arc(x, y, r, 0, Math.PI*2, true);
 	ctx.fill();
 }
 
@@ -51,17 +52,24 @@ function rect(x,y,w,h) {
 	ctx.fill();
 	ctx.stroke();
 }
-    
+function bot(x,y,w,h)  {
+	ctx.beginPath();
+	ctx.rect(x,y,w,h);
+	ctx.closePath();
+	ctx.stroke();
+    ctx.fillStyle = "red";
+}
 
 
-
+function clear() {
+	ctx.clearRect(0, 0, WIDTH, HEIGHT);
+}
 
 // Important starting function
 function init() {
 	canvas = document.getElementById("canvas");
 	ctx = canvas.getContext("2d");
 	return setInterval(draw, 10); // this is key, tells draw function to fire 10x per second
-    
 }
 
 function doKeyDown(evt){
@@ -87,22 +95,31 @@ function doKeyDown(evt){
 			}
 			break;
 		}
+    if (x>20 && x<30 && y>10 && y<30){
+        crash1 = true;
+    }
 }
 
 function draw() {
-    var grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);
-grd.addColorStop(0, "#FF512F");
-grd.addColorStop(1, "#78ffd6");
-
 	clear();
-	ctx.fillStyle = "#D7DDE8";
+	ctx.fillStyle = "white";
 	ctx.strokeStyle = "black";
 	rect(0,0,WIDTH,HEIGHT);
-	ctx.fillStyle = grd;
-	circle(x, y, 40);
-    ctx.font = "50px Arial";
-ctx.fillText("Welcome", 240, 40);
+    if (!crash1){
+        bot(20,10,10,20);
+    }
+    bot(20,200,10,20);
+    bot(20,300,10,20);
+    bot(20,400,10,20);
+	ctx.fillStyle = "light blue";
+	circle(x, y, 13);
+    circle(60, 70, 5);
+    if (rect().Intersects(circle)) {
+    bot.x = 30
+     }
+
 }
+    
 
 // Main part of program
 init();
