@@ -29,9 +29,9 @@ This text is displayed if your browser does not support HTML5 Canvas.
 
 
 
+var page = true;
 
-
-    var canvas = document.getElementById("canvas");
+    /*var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
     ctx.fillStyle = "#FF0000";
     ctx.fillRect(0,0,1000,700);
@@ -52,10 +52,15 @@ This text is displayed if your browser does not support HTML5 Canvas.
             test();
 
         }  
-    })
+    })*/
 
 
-function test() {
+        
+
+
+
+   
+if (page == true) {
 
     var canvas;
     var ctx;
@@ -68,9 +73,9 @@ function test() {
     var hit = 0;
     var TimerCount = 30;
     var counter = 0;
+    
     var dy = 200;
     var dx = 200;
-    
     var px = 1000;
     var py = 500;
     var ppx = 100;
@@ -91,16 +96,12 @@ function test() {
     var sasy = 100;
     var sassx = 100;
 
-    
-    
-
-	countUP();	
+    	countUP();	
 	function countUP () {
 		counter++;
 		setTimeout ("countUP()", 1000);
 	}
-
-
+    
     function bud(x,y,h,w) {
         ctx.drawImage(myImage, x, y, w, h);
 
@@ -122,6 +123,10 @@ function test() {
         
         ctx.drawImage(myPolar, x, y, h, w)
     }
+        function End(x,y,h,w) {
+        
+        ctx.drawImage(myEnd, x, y, h, w)
+    }
         function Pen(x,y,h,w) {
         
         ctx.drawImage(myPenguin, x, y, h, w)
@@ -129,6 +134,10 @@ function test() {
         function Seal(x,y,h,w) {
 
         ctx.drawImage(mySeal, x, y, h, w)
+    }
+        function Win(x,y,h,w) {
+
+        ctx.drawImage(myWin, x, y, h, w)
     }
     function ged() {
         ctx.drawImage(myImae,0,0, WIDTH, HEIGHT);
@@ -139,6 +148,7 @@ function test() {
         ctx.font = "50px Arial";
         ctx.fillStyle = grd;
         ctx.fillText("Hits: " + hit,50,60);
+        ctx.fillText("Stopwatch: " + counter,50,100);
 
         /*ctx.beginPath();
         ctx.arc(x, y, r, 0, Math.PI*2, true);
@@ -147,13 +157,13 @@ function test() {
     }
 
 
-    /*function rect(x,y,w,h) {
+    function rect(x,y,w,h) {
         ctx.beginPath();
         ctx.rect(x,y,w,h);
         ctx.closePath();
         ctx.fill();
         ctx.stroke();
-    }*/
+    }
 
     function clear() {
         ctx.clearRect(0, 0, WIDTH, HEIGHT);
@@ -169,7 +179,7 @@ function test() {
         function doge() {
         canvas = document.getElementById("canvas");
         ctx = canvas.getContext("2d");
-        return setInterval(boss, 1000); // this is key, tells draw function to fire 10x per second
+        return setInterval(boss, 500); // this is key, tells draw function to fire 10x per second
 
         }
     function doKeyDown(evt){
@@ -253,6 +263,7 @@ function test() {
              if (x != polarx || y != polary){ 
                 if (polarx > 50) {
                     Polar(polarx, polary, 150, 120);
+                    var a = Math.random()*canvas.width;
                 }
              }
              if (x == polarx && y == polary) {
@@ -371,6 +382,16 @@ function test() {
                 if (counter == 2) {
             sasx = 1000;
         }
+
+                    if (counter > 32 && hit > 2){
+           End(0,0,1000,700) 
+
+        }
+                    if (counter > 32 && hit < 2){
+           Win(0,0,1000,700) 
+
+        }
+
     }
     
 
@@ -403,14 +424,19 @@ function test() {
     var myPolar = new Image();
     var myPenguin = new Image();
     var mySeal = new Image();
+    var myEnd = new Image();
+    var myWin = new Image();
     myImae.src = "novus.jpg";
     myImage.src = "did.png";
     myPolar.src = "Olar.png";
     myPenguin.src = "Penguin.png";
     mySeal.src = "seal.png";
+    myEnd.src = "end.png";
+    myWin.src = "win.jpg";
     
 
 
+    
 
     // Main part of program
     init();

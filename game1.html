@@ -14,11 +14,13 @@ color: red;
 <section>
 
 <!-- This div is the canvas -->
-<div> Find the shape in which the formula matches, Area = L * W
+<div> "Find the shape in which the formula matches, Area = L * W, Score:"
 <canvas id="canvas" width="700" height="700" >
 This text is displayed if your browser does not support HTML5 Canvas.
 </canvas>
 </div>
+<p id= "demo"></p>
+
 
 <script type="text/javascript">
 /*
@@ -38,6 +40,10 @@ var y = 100;
 var WIDTH = 600;
 var HEIGHT = 600;
 var crash1 = false;
+var score = 0;
+var crash2= false;
+    
+
 
 function circle(x,y,r) {
 	ctx.beginPath();
@@ -97,6 +103,18 @@ function doKeyDown(evt){
 		}
     if (x>20 && x<30 && y>10 && y<30){
         crash1 = true;
+        
+        if ( var i = 0; i < 1; i++) {
+         score++;
+         document.getElementById("demo").innerHTML = score;
+        }
+       
+        
+    }
+        if (x>20 && x<30 && y>190 && y<210){
+        crash2 = true;
+        score++;
+        document.getElementById("demo").innerHTML = score;
     }
 }
 
@@ -108,7 +126,9 @@ function draw() {
     if (!crash1){
         bot(20,10,10,20);
     }
-    bot(20,200,10,20);
+    if (!crash2) {
+        bot(20,200,10,20);
+    }
     bot(20,300,10,20);
     bot(20,400,10,20);
 	ctx.fillStyle = "light blue";
